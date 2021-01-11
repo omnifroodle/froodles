@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
+            <li class="pl-32" key={post.fields.slug}>
               <article
                 className="post-list-item"
                 itemScope

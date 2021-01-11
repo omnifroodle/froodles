@@ -40,26 +40,28 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="bio">
+    <div className="bio flex space-x-4">
       {avatar && (
         <Image
           fixed={avatar}
           alt={author?.name || ``}
-          className="bio-avatar"
+          className="bio-avatar flex-none"
           imgStyle={{
             borderRadius: `50%`,
           }}
         />
       )}
+      <div class="flex-1">
       {author?.name && (
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
           <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
+            You shouldn't follow them on Twitter
           </a>
         </p>
       )}
+      </div>
     </div>
   )
 }
