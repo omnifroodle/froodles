@@ -1,4 +1,3 @@
-```
 backend:
   name: git-gateway
   branch: master
@@ -22,4 +21,3 @@ collections:
       - { label: ‘Publish Date’, name: ‘date’, widget: ‘datetime’ }
       - { label: ‘Description’, name: ‘description’, widget: ‘string’ }
       - { label: ‘Body’, name: ‘body’, widget: ‘markdown’ }
-```
