@@ -13,7 +13,7 @@ Build this blog, but do it in the clouds.
 ## Github
 First, we create a new GitHub project. You can do this right in the Github web UI. We'll go from nothing to a live blog and never touch our local disk.
 
-Mine is (https://github.com/omnifroodle/froodles)
+Mine is (https://github.com/omnifroodle/froodles), the result of these instructions is at this commit (https://github.com/omnifroodle/froodles/tree/eacc93f5e5a5a521584df04eeaa10aa54051fbda).
 
 ## Gitpod
 Once you have your Github repo, we'll need a place to work on it. Go join Gitpod. Then open the blog there.
