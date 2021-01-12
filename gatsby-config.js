@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [GA-process.env.GANALYTICS_ID]
+        trackingIds: [process.env.GANALYTICS_ID]
       }
     },
     `gatsby-plugin-feed`,
