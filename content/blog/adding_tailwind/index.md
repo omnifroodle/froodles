@@ -1,5 +1,5 @@
 ---
-title: Adding some Tailwind (css)
+title: Adding some Tailwind (CSS)
 date: "2021-01-13T14:30:00.000Z"
 description: "Changing our CSS framework over to Tailwind"
 ---
