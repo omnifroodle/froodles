@@ -1,7 +1,7 @@
 ---
 title: Adding some Tailwind (css)
 date: "2021-01-13T14:30:00.000Z"
-description: "Changing our CSS framework over to tailwind"
+description: "Changing our CSS framework over to Tailwind"
 ---
 
 I'm a fan of Tailwind CSS.  Is it the best CSS framework? I have no idea. But it does let me iterate quickly with small discrete building blocks. It's the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) in CSS and I'm running with it.
