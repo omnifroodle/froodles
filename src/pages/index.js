@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "gatsby-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -22,43 +23,62 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
+  const avatar = data?.avatar?.childImageSharp?.fixed
+  const author = data.site.siteMetadata?.author
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+      <div class="flex">
+        <div class="flex w-100">
+          {avatar && (
+            <Image
+              fixed={avatar}
+              alt={author?.name || ``}
+              className="bio-avatar flex-none w-16"
+              imgStyle={{
+                borderRadius: `20%`,
+              }}
+            />
+          )}
+        </div>
+        <div class="flex-1 pl-4">
+         <Bio />
+    
+          <ol style={{ listStyle: `none` }}>
+            {posts.map(post => {
+              const title = post.frontmatter.title || post.fields.slug
 
-          return (
-            <li class="pl-32" key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+              return (
+                <li key={post.fields.slug}>
+                  <article
+                    className="post-list-item"
+                    itemScope
+                    itemType="http://schema.org/Article"
+                  >
+                    <header>
+                      <h2>
+                        <Link to={post.fields.slug} itemProp="url">
+                          <span itemProp="headline">{title}</span>
+                        </Link>
+                      </h2>
+                      <small>{post.frontmatter.date}</small>
+                    </header>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: post.frontmatter.description || post.excerpt,
+                        }}
+                        itemProp="description"
+                      />
+                    </section>
+                  </article>
+                </li>
+              )
+            })}
+          </ol>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -67,6 +87,13 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 120, quality: 95) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title
